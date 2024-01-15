@@ -1,0 +1,27 @@
+<h1>Defer</h1>
+
+Use cases
+<ul>
+  <li>
+    Decrease initial <b>bundle size</b>, e.g. when component has a huge code
+    base
+  </li>
+  <li>
+    Component that make a <b>lot of computations/calls when instantiated</b>
+  </li>
+</ul>
+
+One can define events that trigger the loading of the component, for example on
+hover, click, viewport (when user first sees the component). See
+<a href="https://angular.dev/guide/defer" target="_blank">documentation</a>
+
+<hr />
+
+<p>mouse hover on the placeholder triggers the loading</p>
+
+@defer(on hover){
+<app-very-big-component />
+} @placeholder {
+<p>defer placeholder</p>
+<!-- shows this message if you disable network before hovering -->
+} @error { failed to load the component }

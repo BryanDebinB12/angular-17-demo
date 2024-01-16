@@ -1,0 +1,40 @@
+<h1>Control flow : If</h1>
+
+<p>
+  Control flow directives are used to conditionally render elements. See
+  <a href="https://angular.dev/guide/templates/control-flow" target="_blank"
+    >documentation</a
+  >. They replace structure directives such as *ngIf and *ngFor.
+</p>
+
+<button (click)="firstCondition = !firstCondition">first condition</button>
+{{ {firstCondition} | json}}
+<br />
+<button (click)="secondCondition = !secondCondition">second condition</button>
+{{ {secondCondition} | json}}
+
+<h4>Old syntax</h4>
+<ng-container *ngIf="firstCondition; else firstConditionTemplate">
+  <p>shown if first condition is true</p>
+</ng-container>
+<ng-template #firstConditionTemplate>
+  <ng-container *ngIf="secondCondition; else secondConditionTemplate">
+    <p>shown if first condition is false</p>
+    <p>and second condition is true</p>
+  </ng-container>
+</ng-template>
+<ng-template #secondConditionTemplate>
+  <p>shown if first condition is false</p>
+  <p>and second condition is false</p>
+</ng-template>
+
+<h4>New syntax</h4>
+@if(firstCondition) {
+<p>shown if first condition is true</p>
+} @else if(secondCondition) {
+<p>shown if first condition is false</p>
+<p>and second condition is true</p>
+} @else {
+<p>shown if first condition is false</p>
+<p>and second condition is false</p>
+}

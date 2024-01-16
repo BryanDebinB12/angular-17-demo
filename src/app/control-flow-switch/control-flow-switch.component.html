@@ -1,0 +1,33 @@
+<!-- <h1>Control flow : Switch</h1>
+
+<p>better typing</p>
+
+<button (click)="firstCondition = !firstCondition">first condition</button>
+{{ {firstCondition} | json}}
+<br />
+
+<h4>Old syntax</h4>
+<ng-container *ngIf="firstCondition; else firstConditionTemplate">
+  <p>shown if first condition is true</p>
+</ng-container>
+<ng-template #firstConditionTemplate>
+  <ng-container *ngIf="secondCondition; else secondConditionTemplate">
+    <p>shown if first condition is false</p>
+    <p>and second condition is true</p>
+  </ng-container>
+</ng-template>
+<ng-template #secondConditionTemplate>
+  <p>shown if first condition is false</p>
+  <p>and second condition is false</p>
+</ng-template>
+
+<h4>New syntax</h4>
+@if(firstCondition) {
+<p>shown if first condition is true</p>
+} @else if(secondCondition) {
+<p>shown if first condition is false</p>
+<p>and second condition is true</p>
+} @else {
+<p>shown if first condition is false</p>
+<p>and second condition is false</p>
+} -->

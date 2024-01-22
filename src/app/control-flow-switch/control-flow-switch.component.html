@@ -1,33 +1,76 @@
-<!-- <h1>Control flow : Switch</h1>
+<h1>Control flow : Switch</h1>
 
-<p>better typing</p>
+<div>
+  I encourage not to use switch in templates, except for very simple use cases.
+  The reason is that
+  <ul>
+    <li>it is not very readable</li>
+    <li>
+      Neither the old syntax nor the new one has compelling type checking (see
+      commented code below)
+    </li>
+    <li>The new syntax provides a readable 'if else' syntax</li>
+  </ul>
+  See new
+  <a
+    href="https://angular.dev/guide/templates/control-flow#switch-block---selection"
+    >Documentation</a
+  >. Here is the old an new syntax for switch.
+</div>
 
-<button (click)="firstCondition = !firstCondition">first condition</button>
-{{ {firstCondition} | json}}
 <br />
 
+<select [(ngModel)]="value">
+  <option *ngFor="let option of options" [value]="option.value">
+    {{ option.label }}
+  </option>
+</select>
+
+<p>selected item :</p>
+<pre>{{ value | json }}</pre>
+
 <h4>Old syntax</h4>
-<ng-container *ngIf="firstCondition; else firstConditionTemplate">
-  <p>shown if first condition is true</p>
+<br />
+<ng-container [ngSwitch]="value">
+  <ng-container *ngSwitchCase="'value 1'">case 1</ng-container>
+  <ng-container *ngSwitchCase="'value 2'">case 2</ng-container>
+  <ng-container *ngSwitchCase="'value 3'">case 3</ng-container>
+  <ng-container *ngSwitchDefault>default</ng-container>
 </ng-container>
-<ng-template #firstConditionTemplate>
-  <ng-container *ngIf="secondCondition; else secondConditionTemplate">
-    <p>shown if first condition is false</p>
-    <p>and second condition is true</p>
-  </ng-container>
-</ng-template>
-<ng-template #secondConditionTemplate>
-  <p>shown if first condition is false</p>
-  <p>and second condition is false</p>
-</ng-template>
 
 <h4>New syntax</h4>
-@if(firstCondition) {
-<p>shown if first condition is true</p>
-} @else if(secondCondition) {
-<p>shown if first condition is false</p>
-<p>and second condition is true</p>
-} @else {
-<p>shown if first condition is false</p>
-<p>and second condition is false</p>
-} -->
+<br />
+@switch (value) { @case ('value 1') {
+<p>case 1</p>
+} @case ('value 2') {
+<p>case 2</p>
+} @case ('value 3') {
+<p>case 3</p>
+} @default {
+<p>default</p>
+} }
+
+<!-- ATTEMPTS AT USING TYPE GUARDS  -->
+<!-- <h4>Old syntax</h4>
+<br />
+
+<ng-container [ngSwitch]="selectionOptionItem">
+  <ng-container *ngSwitchCase="isOption(selectionOptionItem)">
+  {{
+    selectionOptionItem
+  }}
+  Notice the lake of type narrowing here
+  </ng-container>
+  <ng-container *ngSwitchCase="isExtendedOption(selectionOptionItem)">{{
+    selectionOptionItem
+  }}</ng-container>
+  <ng-container *ngSwitchDefault>default</ng-container>
+</ng-container>
+
+<h4>New syntax</h4>
+<br />
+
+The code below does no compile as the new syntax only allow for values to be compared with the switch expression via a '===' operator
+@switch (selectionOptionItem) { @case (isOption(selectionOptionItem)) {
+<p>{{ selectionOptionItem }}</p>
+} } -->

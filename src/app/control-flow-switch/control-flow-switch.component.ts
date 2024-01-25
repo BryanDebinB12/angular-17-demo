@@ -1,10 +1,4 @@
-import {
-  CommonModule,
-  NgFor,
-  NgSwitch,
-  NgSwitchCase,
-  NgSwitchDefault,
-} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -15,14 +9,7 @@ type ExtendedOption = Option & { additionalProperty: string };
 @Component({
   selector: 'app-control-flow-switch',
   standalone: true,
-  imports: [
-    NgFor,
-    NgSwitch,
-    CommonModule,
-    NgSwitchCase,
-    NgSwitchDefault,
-    FormsModule,
-  ],
+  imports: [CommonModule, FormsModule],
   templateUrl: './control-flow-switch.component.html',
   styleUrl: './control-flow-switch.component.scss',
 })

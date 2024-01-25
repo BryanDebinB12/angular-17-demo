@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 type ListItem = { label: string; value: string; id: number };
@@ -6,7 +6,7 @@ type ListItem = { label: string; value: string; id: number };
 @Component({
   selector: 'app-control-flow-for',
   standalone: true,
-  imports: [NgFor],
+  imports: [CommonModule],
   templateUrl: './control-flow-for.component.html',
   styleUrl: './control-flow-for.component.scss',
 })

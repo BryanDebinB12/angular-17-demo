@@ -1,1 +1,29 @@
-<p>control-flow-for works!</p>
+<h1>Control flow : For</h1>
+
+<div>
+  The trackBy function is used to
+  <a
+    href="
+  https://octoperf.com/blog/2023/02/10/angular-performance-ng-for-track-by/"
+    >improve performance </a
+  >improve performance of ngFor. It is mandatory in the new syntax. In doubt,
+  use
+  <pre>track &#64;index</pre>
+  .
+</div>
+
+<button (click)="changeItems()">Change items</button>
+
+<!-- inspect the element in the dev tools to see which one gets re-rendered -->
+<h4>Old syntax</h4>
+<ng-container *ngFor="let item of list">{{ item.label }}</ng-container>
+
+<h4>New syntax. Using $index</h4>
+@for (item of list; track $index) {
+{{ item.label }}
+}
+
+<h4>New syntax. Using trackBy properly</h4>
+@for (item of list; track item.id) {
+{{ item.label }}
+}

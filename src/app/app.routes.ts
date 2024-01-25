@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { ControlFlowForTrackByPerfTestComponent } from './control-flow-for-track-by-perf-test/control-flow-for-track-by-perf-test.component';
 import { ControlFlowForComponent } from './control-flow-for/control-flow-for.component';
 import { ControlFlowIfComponent } from './control-flow-if/control-flow-if.component';
 import { ControlFlowSwitchComponent } from './control-flow-switch/control-flow-switch.component';
@@ -12,8 +13,9 @@ export const routes: Routes = [
   { path: '1', component: StandaloneComponent },
   { path: '2', component: ControlFlowIfComponent },
   { path: '3', component: ControlFlowForComponent },
-  { path: '4', component: ControlFlowSwitchComponent },
-  { path: '5', component: DeferComponent },
+  { path: '4', component: ControlFlowForTrackByPerfTestComponent },
+  { path: '5', component: ControlFlowSwitchComponent },
+  { path: '6', component: DeferComponent },
   { path: '7', component: SignalsComponent },
   { path: '8', component: TypedFormComponent },
   { path: '9', component: InputDecoratorComponent },

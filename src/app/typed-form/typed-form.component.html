@@ -1,1 +1,38 @@
-<p>typed-form works!</p>
+<h1>Typed forms</h1>
+
+<form [formGroup]="nonNullableFormGroup">
+  <label>
+    First Name:
+    <!-- notice, there is still no type checking on "formControlName" -->
+    <input type="text" formControlName="firstName" />
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName" />
+  </label>
+
+  <div formGroupName="address">
+    <label>
+      Street:
+      <input type="text" formControlName="street" />
+    </label>
+
+    <label>
+      City:
+      <input type="text" formControlName="city" />
+    </label>
+
+    <label>
+      State:
+      <input type="text" formControlName="state" />
+    </label>
+
+    <label>
+      Zip:
+      <input type="text" formControlName="zip" />
+    </label>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

@@ -41,9 +41,13 @@
 @if(firstCondition) {
 <p>shown if first condition is true</p>
 } @else if(secondCondition) {
-<p>shown if first condition is false</p>
-<p>and second condition is true</p>
+<ng-container *ngTemplateOutlet="templateIReallyWantToReuse"> </ng-container>
 } @else {
 <p>shown if first condition is false</p>
 <p>and second condition is false</p>
 }
+
+<ng-template #templateIReallyWantToReuse>
+  <p>shown if first condition is false</p>
+  <p>and second condition is true</p>
+</ng-template>

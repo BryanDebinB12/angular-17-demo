@@ -22,5 +22,6 @@ export class InjectComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // careful : this is dangerous, you should use this in an "inject context"
   public displayQueryParamValue$ = getImportantQueryParam$();
 }

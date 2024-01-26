@@ -21,7 +21,7 @@ export class ControlFlowForComponent {
   public changeItems() {
     // this.list[0].label = 'Item 1 changed';
     this.list = [
-      { label: 'Item 1 changed', value: 'value 1', id: 1 + Math.random() },
+      { label: 'Item 1 changed', value: 'value 1', id: 1 },
       { label: 'Item 2', value: 'value 2', id: 2 },
       { label: 'Item 3', value: 'value 3', id: 3 },
     ];

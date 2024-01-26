@@ -4,6 +4,7 @@ import {
   FormBuilder,
   NonNullableFormBuilder,
   ReactiveFormsModule,
+  UntypedFormBuilder,
 } from '@angular/forms';
 
 @Component({
@@ -16,6 +17,9 @@ import {
 export class TypedFormComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   private readonly nonNullableFormBuilder = inject(NonNullableFormBuilder);
+  // you can still use the old reactive forms, which now have the "untyped" prefix.
+  // example, for the formBuilder :
+  private readonly untypedFormBuilder = inject(UntypedFormBuilder);
 
   // initial values let angular infer the type automatically
   public formGroup = this.formBuilder.group({
@@ -78,5 +82,16 @@ export class TypedFormComponent implements OnInit {
       ',firstName raw value after enabling firstName:',
       this.nonNullableFormGroup.getRawValue().firstName
     );
+
+    // setValue() must specify every child controls, while patchValue allows partial updates
+    this.formGroup.controls.address.setValue({
+      street: 'new street', // compilation error if something was missing
+      city: 'new city',
+      state: 'new state',
+      zip: 'new zip',
+    });
+    this.formGroup.controls.address.patchValue({
+      street: 'new street', // no compilation error
+    });
   }
 }

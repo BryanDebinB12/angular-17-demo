@@ -5,6 +5,7 @@ import { ControlFlowSwitchComponent } from './control-flow-switch/control-flow-s
 import { DeferComponent } from './examples/defer/defer.component';
 import { InjectComponent } from './inject/inject.component';
 import { InputDecoratorComponent } from './input-decorator/input-decorator.component';
+import { NgTemplateOutletExampleComponent } from './ng-template-outlet-example/ng-template-outlet-example.component';
 import { SignalsComponent } from './signals/signals.component';
 import { StandaloneComponent } from './standalone/standalone.component';
 import { TypedFormComponent } from './typed-form/typed-form.component';
@@ -21,19 +22,7 @@ export const routes: Routes = [
   { path: '7', component: SignalsComponent },
   { path: '8', component: TypedFormComponent },
   { path: '9', component: InputDecoratorComponent },
-  //   { path: '7', component},
-  //   { path: '8', component},
-  //   { path: '9', component},
-  //   { path: '10', component},
+  { path: '10', component: NgTemplateOutletExampleComponent },
   //   { path: '11', component},
-  //   { path: '12' component},
-  //   { path: '13',component},
-  //   { path: '14', component},
-  //   { path: '15', component},
-  //   { path: '16', component},
-  //   { path: '17', component},
-  //   { path: '18', component},
-  //   { path: '19', component},
-  //   { path: '20', component},
   { path: '**', redirectTo: '1' },
 ];

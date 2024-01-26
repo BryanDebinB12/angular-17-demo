@@ -27,6 +27,5 @@ export const routes: Routes = [
   { path: '9', component: InputDecoratorComponent },
   { path: '10', component: NgTemplateOutletExampleComponent },
   { path: '11', component: NgTemplateOutletTypedExampleComponent },
-  //   { path: '11', component},
   { path: '**', redirectTo: '1' },
 ];

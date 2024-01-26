@@ -1,0 +1,42 @@
+<h1>NgTemplateOutlet (typed version)</h1>
+
+<p>
+  Based on
+  <a
+    href="https://www.youtube.com/watch?v=TZZApWysF9g&t=1s&ab_channel=JoshuaMorony"
+    >this video</a
+  >
+</p>
+
+<!-- No templates provided, will use default layout -->
+<app-my-very-own-table-typed [data]="employees"></app-my-very-own-table-typed>
+
+<!-- Basic configured template -->
+<app-my-very-own-table-typed [data]="employees">
+  <ng-template #headers>
+    <th>First</th>
+    <th>Last</th>
+  </ng-template>
+</app-my-very-own-table-typed>
+
+<!-- Highly configured template with conditional elements -->
+<app-my-very-own-table-typed [data]="inventory">
+  <ng-template appMyVeryOwnTableTypedHeaders>
+    <th>Item</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+  </ng-template>
+  <ng-template [appMyVeryOwnTableTypedRows]="inventory" let-row>
+    <td>{{ row.name }}</td>
+    <td>{{ row.price | currency : row.currency }}</td>
+    <td>
+      <button *ngIf="row.inStock > 0" (click)="purchaseItem(row.plu)">
+        Buy now
+      </button>
+    </td>
+    <td>
+      <button>Delete</button>
+    </td>
+  </ng-template>
+</app-my-very-own-table-typed>

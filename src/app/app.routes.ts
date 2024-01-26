@@ -9,6 +9,9 @@ import { NgTemplateOutletExampleComponent } from './ng-template-outlet-example/n
 import { SignalsComponent } from './signals/signals.component';
 import { StandaloneComponent } from './standalone/standalone.component';
 import { TypedFormComponent } from './typed-form/typed-form.component';
+import {
+  NgTemplateOutletTypedExampleComponent
+} from "./ng-template-outlet-typed-example/ng-template-outlet-typed-example.component";
 
 // by default standalone components are lazy loaded when no app.routing.module is present, like in this application
 // We can still lazy load standalone component in application that use app.routing.module by using the "loadComponent" method, see https://angular.io/guide/standalone-components#routing-and-lazy-loading.
@@ -23,5 +26,6 @@ export const routes: Routes = [
   { path: '8', component: TypedFormComponent },
   { path: '9', component: InputDecoratorComponent },
   { path: '10', component: NgTemplateOutletExampleComponent },
+  { path: '11', component: NgTemplateOutletTypedExampleComponent },
   { path: '**', redirectTo: '1' },
 ];

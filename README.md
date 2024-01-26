@@ -2,9 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
 
+## Prerequisites
+Be sure to have Node.js installed on your machine. The Angular CLI requires a minimum Node.js version of v18.13.
+To check your version, run `node -v` in a terminal.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+After installing the dependencies via `npm install`, you can run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
+The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

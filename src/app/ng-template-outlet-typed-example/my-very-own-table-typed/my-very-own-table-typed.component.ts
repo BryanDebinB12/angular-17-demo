@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ContentChild, Directive, Input, TemplateRef } from '@angular/core';
 
 // Typing trick with context guard for headers
-interface MyVeryOwnTableTypedHeadersTemplateContext {
+type MyVeryOwnTableTypedHeadersTemplateContext = {
   // nothing for now
 }
 
@@ -21,7 +21,7 @@ export class MyVeryOwnTableTypedHeadersDirective {
 }
 
 // Typing trick with context guard for rows
-interface MyVeryOwnTableTypedRowsTemplateContext<T> {
+type MyVeryOwnTableTypedRowsTemplateContext<T> = {
   $implicit: T;
   // add more properties here if needed
 }
@@ -31,7 +31,7 @@ interface MyVeryOwnTableTypedRowsTemplateContext<T> {
   standalone: true,
 })
 export class MyVeryOwnTableTypedRowsDirective<T> {
-  @Input('appMyVeryOwnTableTypedRows') data! : T[];
+  @Input('appMyVeryOwnTableTypedRows') data! : Array<T>;
   static ngTemplateContextGuard<T>(
     dir: MyVeryOwnTableTypedRowsDirective<T>,
     ctx: unknown
